@@ -1,0 +1,15 @@
+{
+  "name": "adobe-commerce-cloud-hosting-examples-pwa",
+  "version": "1.0.0",
+  "description": "An example express app to illustrate how to host in Adobe Commerce Cloud",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Doug Hatcher",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
