@@ -92,7 +92,7 @@ Keep in mind that Adobe Commerce Cloud must have access to this git repository i
 
 ## Hello World Express Server
 
-`server.js` and `package.json` define a simple hello world express server that can be replaced with your application code. 
+`server.js`, `server.css` and `package.json` define a simple hello world express server that can be replaced with your application code. 
 
 This is a typical express server that will listen on port `3000`. 
 
