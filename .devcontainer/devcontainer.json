@@ -8,5 +8,7 @@
 			"version": "latest",
 			"nvmVersion": "latest"
 		}
-	}
+	},
+	"postCreateCommand": "npm install",
+	"postAttachCommand": "npm run start:cloud"
 }
