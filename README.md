@@ -63,7 +63,7 @@ The base configuration will listen for anything to bind to port 8888 and will tr
 
 ```yaml
 scripts: 
-    "start:cloud": "PORT=8888 node server.js # We add this to start the server on port 8888"
+    "start:cloud": "PORT=8888 node server.js"
 ```
 
 ## Single App Mode
