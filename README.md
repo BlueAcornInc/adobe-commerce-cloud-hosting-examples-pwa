@@ -6,7 +6,7 @@ general-purpose web applications, such as Node.js based PWAs.
 * [Live Demo](https://example-project-ownsyqq-zs5comprbmlgu.us-4.magentosite.cloud/)
 * [Github Repo](https://github.com/BlueAcornInc/adobe-commerce-cloud-hosting-examples-pwa)
 
-## Building and Deploying the App
+## Basic Configuration
 
 Please review the `.magento.app.yaml` file to see the completed solution.
 
@@ -17,13 +17,11 @@ We can optionally install any global node dependancies required to make the solu
 In this example, we're adding the global dependancies needed to build a remix project:
 
 ```yaml
-...
 dependencies:
     nodejs:
         node-sass: "^9.0.0"
         npm-run-all: "4.1.5"
         "@remix-run/dev": "2.11.0"
-...
 ```
 
 ### hooks
@@ -47,6 +45,16 @@ web:
     commands:
         start: |
             npm run start:cloud
+```
+
+### mounts
+
+While this example does not use mounts, one can easily introduce them to allow for read-write operations within the runtime stack. 
+
+```yaml
+mounts:
+    "build": "shared:build/"
+    "public/build": "shared:public-build"
 ```
 
 ### Server listening on port 8888 
@@ -98,6 +106,27 @@ Adobe Commerce Cloud is configured to listen to port `8888` by default, please m
 npm run start:cloud
 ```
 In this approach, we're _adding_ a npm script which triggers the PORT. This can also be accomplished through setting a Project Variable within Adobe Commerce Cloud, or potentially in the build pipeline itself.
+
+## Troubleshooting
+
+Getting these kinds of applications working can be tricky, especially when in a multi-app arrangement where you're also contenting with a build and deployment of Adobe Commerce Cloud. The following may help you navigate some sticky situations.
+
+### /tmp is read-writable
+
+If you're facing build and dependancy issues that prevent you from getting the application running in the instance, when it works locally, you can often troubleshoot the application by copying the `/app` directory to `/tmp/app` where you can perform steps that require a writable file system. For example:
+
+```bash
+cp /app /tmp/app -rf
+cd /tmp/app
+npm install 
+npm run build
+npm run start
+```
+This will allow you to test build steps in an interactive context where you can experiment a bit.
+
+### Start by Deploying as a Single App
+
+Start by deploying your node project repo seperately as a single-app deployment in a development branch. This will prevent the Adobe Commerce project from performing unnessisary deployments which take forever, could get stuck, and may require a support ticket to deal with. 
 
 ## License
 

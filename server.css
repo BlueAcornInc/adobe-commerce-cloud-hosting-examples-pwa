@@ -1,14 +1,9 @@
-/* Reset default styles */
-
-
-/* Set sans-serif font family */
 body {
     font-family: Arial, sans-serif;
     margin: 20px auto;
     width: 800px;
 }
 
-/* Add modern flourishes */
 .container {
     display: flex;
     justify-content: center;
