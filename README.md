@@ -3,6 +3,9 @@
 This repository demonstrates the minimal configuration to build an Adobe Commerce Cloud instance that's suitable for hosting
 general-purpose web applications, such as Node.js based PWAs. 
 
+* [Live Demo](https://example-project-ownsyqq-zs5comprbmlgu.us-4.magentosite.cloud/)
+* [Github Repo](https://github.com/BlueAcornInc/adobe-commerce-cloud-hosting-examples-pwa)
+
 ## Building and Deploying the App
 
 Please review the `.magento.app.yaml` file to see the completed solution.
@@ -109,4 +112,4 @@ The MIT License is a permissive open-source license that allows for the free use
     * [Unified App Approach](https://platform.sh/blog/one-source-many-apps/)
 
 -----
-___2024 Blue Acorn iCi___ 
+___2024 [Blue Acorn iCi](https://blueacornici.com)___ 
