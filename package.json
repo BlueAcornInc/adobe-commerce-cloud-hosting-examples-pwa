@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "echo \"Error: this project does not need to build assets\" && exit 1",
+    "build": "echo \"Info: this project does not need to build assets\"",
     "start": "node server.js",
     "start:cloud": "PORT=8888 node server.js # We add this to start the server on port 8888"
   },
