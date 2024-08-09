@@ -87,6 +87,8 @@ In this arrangement, this project is included as a git submodule as part of a tr
     git add pwa .gitmodules
     git commit -m "tracks the pwa as a git submodule of this project"
 ```
+### Add Deployment Keys so Cloud can fetch the Git Submodule
+
 Keep in mind that Adobe Commerce Cloud must have access to this git repository in order to successfully build and deploy it. Add the Deployment Keys from the projecgt settings in Adobe Commerce Cloud to the VCS tool that is hosting the repository. This will allow Cloud to pull the latest commits.
 
 
