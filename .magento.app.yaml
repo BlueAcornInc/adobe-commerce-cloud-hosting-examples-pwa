@@ -1,0 +1,40 @@
+name: mypwa
+
+type: 'nodejs:20'
+
+dependencies:
+    nodejs:
+        pnpm: "latest"
+
+build:
+    flavor: none
+
+size: L
+
+resources:
+    base_memory: 1024
+    memory_ratio: 1024
+
+# relationships:
+#     mymagento: 'mymagento:http'
+
+hooks:
+    build: |
+        set -e
+        npm install
+        npm run build
+
+web:
+    commands:
+        start: |
+            npm run start:cloud
+    upstream: 
+        socket_family: tcp
+        protocol: http
+    locations:
+        '/':
+            passthru: true
+            request_buffering:
+                enabled: false
+
+disk: 512

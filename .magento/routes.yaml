@@ -1,0 +1,3 @@
+http://{all}/:
+    type: upstream
+    upstream: mypwa:http
