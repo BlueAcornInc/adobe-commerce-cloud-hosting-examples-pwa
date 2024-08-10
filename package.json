@@ -1,5 +1,5 @@
 {
-  "name": "adobe-commerce-cloud-hosting-examples-pwa",
+  "name": "commerce-cloud-example",
   "version": "1.0.0",
   "description": "An example express app to illustrate how to host in Adobe Commerce Cloud",
   "main": "server.js",

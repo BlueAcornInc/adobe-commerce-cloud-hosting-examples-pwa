@@ -17,6 +17,10 @@ We can optionally install any global node dependancies required to make the solu
 In this example, we're adding the global dependancies needed to build a remix project:
 
 ```yaml
+$ cat .magento.app.yaml
+
+name: mypwa
+
 dependencies:
     nodejs:
         node-sass: "^9.0.0"
@@ -28,12 +32,18 @@ dependencies:
 
 Modify the build hook to align with the steps needed to build your applicaiton.
 
+
 ```yaml
+$ cat .magento.app.yaml
+
+name: mypwa
+...
 hooks:
     build: |
         set -e
         npm install
         npm run build
+...
 ```
 
 ### starting the app
@@ -41,10 +51,15 @@ hooks:
 Finally, when the instance comes up this will start the server command. If this command exits for any reason, it will be immedately restarted:
 
 ```yaml
+$ cat .magento.app.yaml
+
+name: mypwa
+...
 web:
     commands:
         start: |
             npm run start:cloud
+...
 ```
 
 ### mounts
@@ -52,18 +67,30 @@ web:
 While this example does not use mounts, one can easily introduce them to allow for read-write operations within the runtime stack. 
 
 ```yaml
+
+$ cat .magento.app.yaml
+
+name: mypwa
+...
 mounts:
     "build": "shared:build/"
     "public/build": "shared:public-build"
+...
 ```
 
 ### Server listening on port 8888 
 
 The base configuration will listen for anything to bind to port 8888 and will try and serve that out to the world. Make sure that your web server is binded to this port. This can be accomplished several ways, but in our example we're using a `npm run` command to set a `PORT` environment variable that is interpreted by our server. 
 
-```yaml
-scripts: 
+```json
+$ cat package.json
+{
+  "name": "commerce-cloud-example",
+...
+  "scripts": {
     "start:cloud": "PORT=8888 node server.js"
+...
+}
 ```
 
 ## Single App Mode
