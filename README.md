@@ -1,4 +1,4 @@
-# Adobe Commerce Cloud Hosting Examples for Node Applications
+# Adobe Commerce Cloud Hosting Examples
 
 This repository demonstrates the minimal configuration to build an Adobe Commerce Cloud instance that's suitable for hosting
 general-purpose web applications, such as Node.js based PWAs. 
@@ -84,12 +84,14 @@ The base configuration will listen for anything to bind to port 8888 and will tr
 
 ```json
 $ cat package.json
+
 {
-  "name": "commerce-cloud-example",
-...
-  "scripts": {
-    "start:cloud": "PORT=8888 node server.js"
-...
+    "name": "commerce-cloud-example",
+    ...
+    "scripts": {
+        "start:cloud": "PORT=8888 node server.js"
+    }
+    ...
 }
 ```
 
@@ -110,9 +112,9 @@ In this arrangement, this project is included as a git submodule as part of a tr
 ### Configuring the Git Submodule
 
 ```bash
-    git submodule init <clone-down-url> pwa/
-    git add pwa .gitmodules
-    git commit -m "tracks the pwa as a git submodule of this project"
+$ git submodule init <clone-down-url> pwa/
+$ git add pwa .gitmodules
+$ git commit -m "tracks the pwa as a git submodule of this project"
 ```
 ### Add Deployment Keys so Cloud can fetch the Git Submodule
 
@@ -126,13 +128,13 @@ Keep in mind that Adobe Commerce Cloud must have access to this git repository i
 This is a typical express server that will listen on port `3000`. 
 
 ```bash
-npm run start
+$ npm run start
 ```
 
 Adobe Commerce Cloud is configured to listen to port `8888` by default, please make sure you have some capability to change the default port behavior. In our example, we use the environment variable `PORT` to override the default value, i.e.
 
 ```bash
-npm run start:cloud
+$ npm run start:cloud
 ```
 In this approach, we're _adding_ a npm script which triggers the PORT. This can also be accomplished through setting a Project Variable within Adobe Commerce Cloud, or potentially in the build pipeline itself.
 
@@ -145,11 +147,11 @@ Getting these kinds of applications working can be tricky, especially when in a 
 If you're facing build and dependancy issues that prevent you from getting the application running in the instance, when it works locally, you can often troubleshoot the application by copying the `/app` directory to `/tmp/app` where you can perform steps that require a writable file system. For example:
 
 ```bash
-cp /app /tmp/app -rf
-cd /tmp/app
-npm install 
-npm run build
-npm run start
+$ cp /app /tmp/app -rf
+$ cd /tmp/app
+$ npm install 
+$ npm run build
+$ npm run start
 ```
 This will allow you to test build steps in an interactive context where you can experiment a bit.
 
