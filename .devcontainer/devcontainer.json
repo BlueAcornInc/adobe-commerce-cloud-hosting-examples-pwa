@@ -2,7 +2,7 @@
 	"name": "Adobe Commerce Cloud Hosting Examples",
 	"image": "mcr.microsoft.com/devcontainers/base:jammy",
 	"features": {
-		"ghcr.io/devcontainers/features/node:1": {
+		"ghcr.io/devcontainers/features/node:2": {
 			"nodeGypDependencies": true,
 			"installYarnUsingApt": true,
 			"version": "latest",
